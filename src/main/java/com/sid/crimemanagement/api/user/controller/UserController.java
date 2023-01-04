@@ -13,22 +13,16 @@ public class UserController {
     @Autowired
     private UserServices userServices;
 
-//    @GetMapping("/{apiKey}")
-//    public List<UserModel> getAllRegisteredUser(@PathVariable("apiKey") String apiKey){
-//        return userServices.getAllRegisteredUser(apiKey);
-//    }
 
     @PostMapping("/reportCrime/{userApiKey}")
-    public String registerCrime(@PathVariable("userApiKey") String apiKey, @RequestBody CrimeAddRequest crimeAddRequest){
-        return userServices.registerCrime(apiKey,crimeAddRequest);
+    public String registerCrime(@PathVariable("userApiKey") String apiKey, @RequestBody CrimeAddRequest crimeAddRequest) {
+        return userServices.registerCrime(apiKey, crimeAddRequest);
     }
 
     @PostMapping("/register")
-    public String registerUser(@RequestBody UserModelRequest userModelRequest){
+    public String registerUser(@RequestBody UserModelRequest userModelRequest) {
         return userServices.registerUser(userModelRequest);
     }
-
-
 
 
 }

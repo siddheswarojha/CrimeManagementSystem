@@ -17,19 +17,19 @@ public class PoliceController {
     private PoliceServices policeServices;
 
     @GetMapping("/{policeStationCode}/")
-    public List<CrimeRequest> getAllCrimeData(@PathVariable("policeStationCode") String policeStationCode){
+    public List<CrimeRequest> getAllCrimeData(@PathVariable("policeStationCode") String policeStationCode) {
         return policeServices.getAllCrimeData(policeStationCode);
     }
 
     @PostMapping("/register")
-    public String registerPolice(@RequestBody PoliceModelRequest policeModelRequest){
+    public String registerPolice(@RequestBody PoliceModelRequest policeModelRequest) {
         return policeServices.registerPolice(policeModelRequest);
     }
 
     @PostMapping("/{policeStationCode}/{crimeKey}/")
     public CrimeRequest getCrimeReport(@PathVariable("policeStationCode") String policeStationCode,
-                                       @PathVariable ("crimeKey")String crimeKey){
-        return policeServices.getCrimeReport(policeStationCode,crimeKey);
+                                       @PathVariable("crimeKey") String crimeKey) {
+        return policeServices.getCrimeReport(policeStationCode, crimeKey);
 
     }
 }
