@@ -5,4 +5,7 @@ import lombok.Getter;
 
 @Getter
 public class PoliceModelRequest {
+    String policeStationEmail;
+    String policeStationName;
+    String policeStationLocation;
 }

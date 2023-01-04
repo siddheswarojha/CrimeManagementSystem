@@ -13,6 +13,8 @@ import java.util.Date;
 @Getter
 @Setter
 public class CrimeRequest extends AbstractPersistable<Long> {
+
+    String crimeKey;
     String headLine;
     Date date;
     String crimeDescription;

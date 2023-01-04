@@ -10,5 +10,7 @@ public interface UserRepository extends JpaRepository<UserModel, Long> {
 
     UserModel findUserByApiKey(String apiKey);
 
+    long countByEmail(String email);
+
 
 }

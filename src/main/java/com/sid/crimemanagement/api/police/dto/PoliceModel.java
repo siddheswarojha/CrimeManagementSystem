@@ -11,4 +11,8 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 public class PoliceModel extends AbstractPersistable<Long> {
+    String policeStationEmail;
+    String policeStationCode;
+    String policeStationName;
+    String policeStationLocation;
 }
