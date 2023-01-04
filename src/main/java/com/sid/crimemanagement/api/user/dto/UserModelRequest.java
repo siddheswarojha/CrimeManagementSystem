@@ -11,5 +11,5 @@ public class UserModelRequest {
     String aadhaarNumber;
     String gender;
     String phoneNumber;
-    String apiKey;
+
 }

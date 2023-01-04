@@ -22,7 +22,7 @@ public class PoliceController {
     }
 
     @PostMapping("/register")
-    public String registerPolice(PoliceModelRequest policeModelRequest){
+    public String registerPolice(@RequestBody PoliceModelRequest policeModelRequest){
         return policeServices.registerPolice(policeModelRequest);
     }
 
