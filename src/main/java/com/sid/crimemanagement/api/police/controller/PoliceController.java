@@ -16,7 +16,7 @@ public class PoliceController {
     @Autowired
     private PoliceServices policeServices;
 
-    @GetMapping("{policeStationCode}/")
+    @GetMapping("/{policeStationCode}/")
     public List<CrimeRequest> getAllCrimeData(@PathVariable("policeStationCode") String policeStationCode){
         return policeServices.getAllCrimeData(policeStationCode);
     }
@@ -24,5 +24,12 @@ public class PoliceController {
     @PostMapping("/register")
     public String registerPolice(PoliceModelRequest policeModelRequest){
         return policeServices.registerPolice(policeModelRequest);
+    }
+
+    @PostMapping("/{policeStationCode}/{crimeKey}/")
+    public CrimeRequest getCrimeReport(@PathVariable("policeStationCode") String policeStationCode,
+                                       @PathVariable ("crimeKey")String crimeKey){
+        return policeServices.getCrimeReport(policeStationCode,crimeKey);
+
     }
 }

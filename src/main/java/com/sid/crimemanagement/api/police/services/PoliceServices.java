@@ -1,5 +1,6 @@
 package com.sid.crimemanagement.api.police.services;
 
+import com.sid.crimemanagement.api.crime.CrimeException;
 import com.sid.crimemanagement.api.crime.dao.CrimeRepository;
 import com.sid.crimemanagement.api.crime.dto.CrimeRequest;
 import com.sid.crimemanagement.api.police.dao.PoliceRepository;
@@ -37,9 +38,22 @@ public class PoliceServices {
 
     public List<CrimeRequest> getAllCrimeData(String policeStationCode) {
         if(policeRepository.countByPoliceStationCode(policeStationCode)<0){
-            return crimeRepository.findAll();
+           throw new PoliceException();
 
         }
-        throw new PoliceException();
+        return crimeRepository.findAll();
+    }
+
+    public CrimeRequest getCrimeReport(String policeStationCode, String crimeKey) {
+        if(policeRepository.countByPoliceStationCode(policeStationCode)<0){
+            throw new PoliceException();
+
+        }else {
+            if(crimeRepository.countByCrimeKey(crimeKey)<0){
+                throw new CrimeException();
+            }else{
+                 return crimeRepository.findAllByCrimeKey(crimeKey);
+            }
+        }
     }
 }

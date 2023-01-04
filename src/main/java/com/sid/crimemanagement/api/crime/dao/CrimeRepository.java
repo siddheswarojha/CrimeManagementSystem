@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CrimeRepository extends JpaRepository<CrimeRequest,Long> {
+    long countByCrimeKey(String crimeKey);
+    CrimeRequest findAllByCrimeKey(String crimeKey);
 }
